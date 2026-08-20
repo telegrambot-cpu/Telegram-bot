@@ -1,13 +1,13 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 
-// توکنێ نوو ل ژێر دانە
+// توکنێ تە یێ نوو
 const token = '8885872945:AAFDUNbhinQl49PrUicZeTt3mml7SKQJ30o';
 const bot = new TelegramBot(token, { polling: true });
 
 // کۆگاها Keyێن VIP و کاربەرێن VIP
-const vipKeys = new Set(["VIP-1234-5678", "VIP-8888-9999"]); // Keyێن نموونەیی
-const vipUsers = new Set(); // ئایدییا کاربەرێن VIP
+const vipKeys = new Set(["VIP-1234-5678", "VIP-8888-9999"]); 
+const vipUsers = new Set(); 
 
 // فەرمانا /start
 bot.onText(/\/start/, (msg) => {
@@ -33,7 +33,7 @@ bot.onText(/\/vip (.+)/, (msg, match) => {
 
   if (vipKeys.has(keyInput)) {
     vipUsers.add(chatId);
-    vipKeys.delete(keyInput); // Key دهێتە سڕین دا کەسەک دی بکارنەئینێت
+    vipKeys.delete(keyInput); 
     bot.sendMessage(chatId, "🎉 **پیرۆزە! هەژمارا تە بوو ب VIP.** نوکە تۆ دشێی ڤیدیۆیان ب کوالیتییا **4K** دابگری!");
   } else {
     bot.sendMessage(chatId, "❌ **Keyێ ئینخڵاتە یان ژ لایێ کەسەک دی ڤە هاتییە بکارئینان!**");
@@ -52,7 +52,6 @@ bot.on('message', async (msg) => {
 
   bot.sendMessage(chatId, `⏳ **دەرئێنانا ڤیدیۆیێ ب کوالیتییا ${quality}...**`);
 
-  // ل ڤێرە تە دشێی API یا داگرتنێ بکاربینی
   setTimeout(() => {
     bot.sendMessage(chatId, `✅ **ڤیدیۆ ئامادەیە!**\nکوالیتی: ${quality}\n\n*(سێرڤەر ئۆنلاینە و یێ کار دکەت)*`);
   }, 2000);
