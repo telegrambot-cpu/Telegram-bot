@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 
 // توکنێ نوو ل ژێر دانە
-const token = 'YOUR_NEW_TELEGRAM_BOT_TOKEN_HERE';
+const token = '8885872945:AAFDUNbhinQl49PrUicZeTt3mml7SKQJ30o';
 const bot = new TelegramBot(token, { polling: true });
 
 // کۆگاها Keyێن VIP و کاربەرێن VIP
